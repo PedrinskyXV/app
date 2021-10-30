@@ -15,22 +15,27 @@
             $pdf->Output();
         }
 
-        public function pdfMarcas(){
+        public function pdfSucursal(){
             $pdf = new TCPDF();
             $pdf->setHeaderMargin(10);
-            $pdf->setHeaderData(PDF_HEADER_LOGO, 60, 'Reporte', 'Marcas');
+            $pdf->setHeaderData(PDF_HEADER_LOGO, 60, 'Reporte', 'Areas');
             $pdf->SetMargins(20, 30, 20);
             // Consulta a bd
-            $marcas = $this->getModel()->reporteMarcas();
-            $html = '<table border="1" cellpadding="3">
+            $sucursal = $this->getModel()->reporteSucursal();
+            //var_dump($sucursal);
+            $html = '<table border="1" cellpadding="1">
             <tr style="background-color: black; color: white; text-align:center;">
             <td>Código</td>
-            <td>Marca</td>
+            <td>Nombre</td>
+            <td>Telefono</td>
+            <td>Sucursal</td>
             </tr>';
-            foreach ($marcas as $key => $value) {
+            foreach ($sucursal as $key => $value) {
                 $html .= '<tr>
-                <td style="background-color: gray; text-align:center;">'.$value['codigo'].'</td>
-                <td>'.$value['nombre'].'</td>
+                <td style="background-color: gray; text-align:center;">'.$value['Codigo'].'</td>
+                <td>'.$value['Nombre'].'</td>
+                <td>'.$value['Telefono'].'</td>
+                <td>'.$value['Sucursal'].'</td>
                 </tr>';
             }            
             $html .= '</table>';            
@@ -39,35 +44,36 @@
             $pdf->Output();
         }
 
-        public function pdfProductos(){
+        public function pdfEmpleados(){
             if(!empty($_POST)){
                 // Capturar datos
                 if(!empty($_POST['txtCodigo'])){
-                    $datos = $this->getModel()->reporteProductos(1,  $_POST['txtCodigo']);
-                } else {
-                    if(!empty($_POST['sMarca'])){
-                        $datos = $this->getModel()->reporteProductos(2, $_POST['sMarca']);
-                    }                    
+                    $datos = $this->getModel()->reporteEmpleados(1,  $_POST['txtCodigo']);
                 }
+                //var_dump($datos);
                 // Crear PDF
                 $pdf = new TCPDF();
                 $pdf->setHeaderMargin(10);
-                $pdf->setHeaderData(PDF_HEADER_LOGO, 60, 'Reporte', 'Productos');
+                $pdf->setHeaderData(PDF_HEADER_LOGO, 60, 'Reporte', 'Empleado');
                 $pdf->SetMargins(20, 30, 20);
                 if(!empty($datos)){
                     $html = '<table border="1" cellpadding="3">
                     <tr style="background-color: black; color: white; text-align:center;">
                     <td>Código</td>
-                    <td>Producto</td>
-                    <td>Marca</td>
-                    <td>Precio</td>
+                    <td>Nombre</td>
+                        <td>Area</td>
+                        <td>Sucursal</td>
+                        <td>Sueldo Base</td>
+                        <td>Sueldo Final</td>
                     </tr>';
                     foreach ($datos as $key => $value) {
                         $html .= '<tr>
-                        <td style="background-color: gray; text-align:center;">'.$value['codigo'].'</td>
-                        <td>'.$value['nombre'].'</td>
-                        <td>'.$value['marca'].'</td>
-                        <td>'.$value['precio'].'</td>
+                        <td style="background-color: gray; text-align:center;">'.$value['Codigo'].'</td>
+                        <td>'.$value['Nombre'].'</td>
+                        <td>'.$value['Area'].'</td>
+                        <td>'.$value['Sucursal'].'</td>
+                        <td>'.$value['Sueldo Base'].'</td>
+                        <td>'.$value['Sueldo Final'].'</td>
                         </tr>';
                     }            
                     $html .= '</table>'; 
@@ -79,8 +85,8 @@
                 $pdf->Output();
 
             } else {
-                $this->getView()->marcas = $this->getModel()->reporteMarcas();
-                $pagina = 'Informe/pdfProductos';
+                $this->getView()->marcas = $this->getModel()->reporteSucursal();
+                $pagina = 'Informe/pdfEmpleados';
                 $this->getView()->loadView($pagina);
             }            
         }
