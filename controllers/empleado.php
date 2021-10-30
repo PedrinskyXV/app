@@ -8,9 +8,15 @@ class Empleado extends Controller
 
     public function index()
     {
-        if (isset($_SESSION["rol"])) {
-            $pagina = 'Empleado/index';
-            $this->getView()->loadView($pagina);
+        if (isset($_SESSION["nivel"]) ) {
+
+            if($_SESSION["nivel"] != 1){
+                $this->getView()->loadView('Inicio/login');
+            }
+            else{
+                $pagina = 'Empleado/index';
+                $this->getView()->loadView($pagina);
+            }
         } else {
             $this->getView()->loadView('Inicio/login');
         }
@@ -33,7 +39,7 @@ class Empleado extends Controller
                     <td>' . $value['Area'] . '</td>
                     <td class="text-center">
                         <div class="btn-group">';
-            if ($_SESSION['rol'] == 1) {
+            if ($_SESSION['nivel'] == 1) {
                 $tr .= '<a href="' . $urlEliminar . '" class="btn btn-primary btn-sm" id="btnEliminar">Eliminar</a>';
             }
             $tr .= '<a href="' . $urlEditar . '"class="btn btn-dark btn-sm">Modificar</a>
@@ -46,7 +52,7 @@ class Empleado extends Controller
 
     public function nuevo()
     {
-        if (isset($_SESSION["rol"])) {
+        if (isset($_SESSION["nivel"])) {
             $this->getView()->marcas = $this->getModel()->listadoMarcas();
             $pagina = 'Empleado/nuevo';
             $this->getView()->loadView($pagina);
@@ -72,7 +78,7 @@ class Empleado extends Controller
     public function modificar()
     {
 
-        if (isset($_SESSION["rol"])) {
+        if (isset($_SESSION["nivel"])) {
             if (isset($_GET["codigo"])) {
                 $codigo = $_GET["codigo"];
                 // Enviar marcas a la vista

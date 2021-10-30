@@ -1,4 +1,4 @@
-<title>App - Modificar Empleado</title>
+<title>ExFinal - Modificar Empleado</title>
 <?php
 require_once 'views/Template/header.php';
 ?>

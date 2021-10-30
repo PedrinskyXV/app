@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="#">
-                APP
+                ExFinal
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,10 +10,15 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ms-auto">
-                    <a class="nav-link" href="<?=constant('URL')?>inicio/pdfSucursal" onclick="agregarAlTitulo('Inicio');">Inicio</a>
-                    <a class="nav-link" href="<?=constant('URL')?>empleado/index" onclick="agregarAlTitulo('Productos');">Empleados</a>                    
+                    
+                    <a class="nav-link" href="<?=constant('URL')?>inicio/index" onclick="agregarAlTitulo('Inicio');">Inicio</a>
 
-                    <li class="nav-item dropdown">
+                    <?php if($_SESSION['nivel'] == "1"): ?>
+                        <a class="nav-link" href="<?=constant('URL')?>empleado/index" onclick="agregarAlTitulo('Productos');">Empleados</a>                    
+                    <?php endif; ?>
+
+                    <?php if($_SESSION['nivel'] == "2"): ?>
+                        <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                             data-mdb-toggle="dropdown" aria-expanded="false">
                             Reportes
@@ -27,7 +32,10 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item dropdown">
+                    <?php endif; ?>
+
+                    <?php if($_SESSION['nivel'] == "3"): ?>
+                        <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                             data-mdb-toggle="dropdown" aria-expanded="false">
                             Gráficos
@@ -38,9 +46,11 @@
                             </li>
                         </ul>
                     </li>
+                    <?php endif; ?>                                                        
 
                     <div class="d-flex align-items-center">
                         <a class="btn btn-light px-3" href="<?=constant('URL')?>inicio/logout">Salir</a>
+                        <a class="btn btn-warning px-3 ms-3" href="#">Nivel: <?= $_SESSION['nivel'] ?> </a>
                     </div>
 
                 </div>

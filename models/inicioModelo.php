@@ -2,7 +2,7 @@
     class InicioModelo extends Model{
         private $usuario;
         private $contrasena;
-        private $rol;
+        private $nivel;
         
         public function __construct(){
             parent::__construct();
@@ -13,8 +13,8 @@
         public function getContrasena(){
             return $this->contrasena;
         }
-        public function getRol(){
-            return $this->rol;
+        public function getNivel(){
+            return $this->nivel;
         }
         public function setUsuario($usuario){
             $this->usuario = $usuario;
@@ -22,19 +22,19 @@
         public function setContrasena($contrasena){
             $this->contrasena = $contrasena;
         }
-        public function setRol($rol){
-            $this->rol = $rol;
+        public function setNivel($nivel){
+            $this->nivel = $nivel;
         }
 
         public function validarLogin(){
-            $rol = "";
-            $sql = "SELECT rol FROM usuario WHERE usuario='".$this->usuario."' 
-            AND contrasena='".$this->contrasena."'";
+            $nivel = "";
+            $sql = "SELECT nivel FROM usuario WHERE usuario='".$this->usuario."' 
+            AND pass='".$this->contrasena."'";
             $datos = $this->getDb()->conectar()->query($sql);
             while($fila = $datos->fetch_assoc()){
-                $rol = $fila['rol'];
+                $nivel = $fila['nivel'];
             }
-            return $rol;
+            return $nivel;
         }
     }
 ?>

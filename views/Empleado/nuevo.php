@@ -1,4 +1,4 @@
-<title>App - Nuevo Empleado</title>
+<title>ExFinal - Nuevo Empleado</title>
 
 <?php
 require_once 'views/Template/header.php';

@@ -2,6 +2,14 @@
     class Informe extends Controller{
         public function __construct(){
             parent::__construct();
+            if (isset($_SESSION["nivel"]) ) {
+
+                if($_SESSION["nivel"] != 2){
+                    $this->getView()->loadView('Inicio/login');
+                }                
+            } else {
+                $this->getView()->loadView('Inicio/login');
+            }
         }
 
         public function reporteBase(){

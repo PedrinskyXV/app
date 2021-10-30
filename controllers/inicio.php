@@ -10,11 +10,11 @@
                 $this->getModel()->setUsuario($_POST['txtUsuario']);
                 $this->getModel()->setContrasena($_POST['txtContrasena']);
                 //Invocar función del validación
-                $rol = $this->getModel()->validarLogin();
-                if(!empty($rol)){
+                $nivel = $this->getModel()->validarLogin();
+                if(!empty($nivel)){
                     // Crear variables de sesión
                     $_SESSION['usuario'] = $_POST['txtUsuario'];
-                    $_SESSION['rol'] = $rol;
+                    $_SESSION['nivel'] = $nivel;
                     // Mostrar pantalla de inicio
                     $this->getView()->loadView($pagina);
                 } else {
@@ -23,7 +23,7 @@
                     $this->getView()->loadView($login);
                 }
             } else {                 
-                if(isset($_SESSION["rol"])){
+                if(isset($_SESSION["nivel"])){
                     $this->getView()->loadView($pagina);
                 } else {
                     $this->getView()->loadView('Inicio/login'); 

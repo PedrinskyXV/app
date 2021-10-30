@@ -5,7 +5,7 @@ CREATE TABLE usuario
 (
 	usuario VARCHAR(30) NOT NULL,
 	pass VARCHAR(30) NOT NULL,
-	niver INT(11) NOT NULL,
+	nivel INT(11) NOT NULL,
 	estado BIT
 );
 
@@ -83,5 +83,9 @@ SELECT
 FROM
     empleado e
         INNER JOIN
-    area a ON e.codigoArea = a.codigoArea
+    area a ON e.codigoArea = a.codigoArea;
+    
+SELECT * FROM empleado;
 
+SELECT nivel FROM usuario WHERE usuario= 'admin'
+            AND pass='admin123'
