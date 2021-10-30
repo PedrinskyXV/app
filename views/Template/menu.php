@@ -10,7 +10,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ms-auto">
-                    <a class="nav-link" href="<?=constant('URL')?>inicio/index" onclick="agregarAlTitulo('Inicio');">Inicio</a>
+                    <a class="nav-link" href="<?=constant('URL')?>inicio/pdfSucursal" onclick="agregarAlTitulo('Inicio');">Inicio</a>
                     <a class="nav-link" href="<?=constant('URL')?>empleado/index" onclick="agregarAlTitulo('Productos');">Empleados</a>                    
 
                     <li class="nav-item dropdown">
@@ -20,10 +20,10 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <li>
-                                <a class="dropdown-item" href="<?=constant('URL')?>informe/pdfMarcas" target="_blank">Reporte 1</a>
+                                <a class="dropdown-item" href="<?=constant('URL')?>informe/pdfSucursal" target="_blank">Reporte 1</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="<?=constant('URL')?>informe/pdfProductos">Reporte 2</a>
+                                <a class="dropdown-item" href="<?=constant('URL')?>informe/pdfEmpleados">Reporte 2</a>
                             </li>
                         </ul>
                     </li>
@@ -34,13 +34,7 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <li>
-                                <a class="dropdown-item" href="<?=constant('URL')?>graficos/anillo">Anillo</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="<?=constant('URL')?>graficos/barras">Barras</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="<?=constant('URL')?>graficos/circular">Circular</a>
+                                <a class="dropdown-item" href="<?=constant('URL')?>graficos/lineal">Grafico de Linea</a>
                             </li>
                         </ul>
                     </li>

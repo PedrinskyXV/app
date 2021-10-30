@@ -1,6 +1,6 @@
 <footer class="mt-auto text-white-50 bg-dark py-3 align-items-center">
     <div class="flex-grow-1 ms-3">
-        &copy; 2021 Copyright: <span class="text-white">Pedro Perez</span>
+        &copy; 2021 Copyright: <span class="text-white">Pedro Pérez -- 323418</span><span class="text-white">Rodrigo A. Hidalgo -- 332518</span>
     </div>
 </footer>
 </div>

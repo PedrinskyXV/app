@@ -12,19 +12,24 @@ require_once 'views/Template/menu.php';
                 <div class="card-header bg-primary text-white">
                     <h5>Filtros</h5>
                 </div>
+                <br>
                 <div class="card-body">
                     <form action="<?=constant('URL')?>informe/pdfEmpleados" method="POST" target="__blank">
-                        <div class="row">
+                        <div class="row justify-content-center">
+                            <br>
                             <div class="col-6">
                                 Código Empleado
-                                <input type="number" class="form-control" name="txtCodigo">
-                            </div>                            
+                                <input type="number" class="form-control" name="txtCodigo" required>
+                            </div>
+                            <br>                            
                         </div>
+                        <br>
                         <div class="text-center">
                             <button class="btn btn-primary mt-3">Generar PDF</button>
                         </div>
                     </form>
                 </div>
+                <br>
             </div>
         </div>
     </div>
