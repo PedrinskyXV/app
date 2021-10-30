@@ -9,7 +9,7 @@
             $this->host = 'localhost';
             $this->user = 'root';
             $this->pass = '1523';
-            $this->db = 'mvc';
+            $this->db = 'exFinal';
         }
 
         public function conectar(){
