@@ -34,13 +34,7 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <li>
-                                <a class="dropdown-item" href="<?=constant('URL')?>graficos/anillo">Anillo</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="<?=constant('URL')?>graficos/barras">Barras</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="<?=constant('URL')?>graficos/circular">Circular</a>
+                                <a class="dropdown-item" href="<?=constant('URL')?>graficos/lineal">Grafico de Linea</a>
                             </li>
                         </ul>
                     </li>
