@@ -71,4 +71,17 @@ INSERT INTO empleado (nombre, edad, sueldoBase, codigoArea, estado) values
 ('Mafalda', 25, 350.00, 3, 1),
 ('Ricardo', 25, 350.00, 7, 1);
 
+use exFinal;
+SELECT 
+    e.codigoEmpleado,
+    e.nombre,
+    e.edad,
+    e.sueldoBase,
+    e.codigoArea,
+    e.estado,
+    a.nombre
+FROM
+    empleado e
+        INNER JOIN
+    area a ON e.codigoArea = a.codigoArea
 
