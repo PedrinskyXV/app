@@ -4,6 +4,14 @@ class Empleado extends Controller
     public function __construct()
     {
         parent::__construct();
+        if (isset($_SESSION["nivel"]) ) {
+
+            if($_SESSION["nivel"] != 1){
+                $this->getView()->loadView('Inicio/login');
+            }            
+        } else {
+            $this->getView()->loadView('Inicio/login');
+        }
     }
 
     public function index()
