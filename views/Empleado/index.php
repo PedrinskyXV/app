@@ -17,17 +17,18 @@ require_once 'views/Template/menu.php';
             <?php        
                     }
                 ?>
-            <table class="table table-hover" id="productos">
+            <table class="table table-hover table-responsive" id="productos">
                 <thead class="table-dark text-white text-center">
                     <tr>
                         <th scope="col">Código</th>
                         <th scope="col">Nombre</th>
-                        <th scope="col">Marca</th>
-                        <th scope="col">Precio</th>
-                        <th scope="col">Acciones</th>
+                        <th scope="col">Edad</th>
+                        <th scope="col">Sueldo Base</th>
+                        <th scope="col">Area</th>
+                        <th scope="col">Opciones</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="text-center">
 
                 </tbody>
             </table>
