@@ -19,7 +19,7 @@
             return $arreglo;
         }
 
-        public function reporteEmpleados($campo, $valor)
+        public function reporteEmpleados($campo,$valor)
         {
             $arreglo = [];
             $where = ($campo==1)?'e.codigoEmpleado='.$valor:'e.codigoEmpleado='.$valor;
@@ -27,7 +27,6 @@
             INNER JOIN area a ON e.codigoArea = a.codigoArea
             INNER JOIN sucursal s on a.codigoSucursal = s.codigoSucursal WHERE ".$where;
             $datos = $this->getDb()->conectar()->query($sql);
-            //var_dump($datos);
             while($fila = $datos->fetch_object()){
                 $arreglo[] = json_decode(json_encode($fila),true);
             }
